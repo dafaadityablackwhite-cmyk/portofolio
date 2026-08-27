@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Manajemen Toko Surya Jaya</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f4f6f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      h2 {
+        color: #0052d4;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #eef2f5;
+        padding-bottom: 8px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+      }
+
+      .feature-box {
+        background: #f8fafc;
+        border-left: 4px solid #4364f7;
+        padding: 15px;
+        border-radius: 4px;
+      }
+
+      .feature-box h3 {
+        margin-bottom: 8px;
+        color: #1e293b;
+      }
+
+      /* === STYLES SLIDER & GAMBAR === */
+      .carousel-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .contoh-gambar-app-toko {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 10px 0;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+      }
+
+      /* Sembunyikan scrollbar agar lebih rapi */
+      .contoh-gambar-app-toko::-webkit-scrollbar {
+        display: none;
+      }
+      .contoh-gambar-app-toko {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .contoh-gambar-app-toko img {
+        flex: 0 0 auto;
+        width: 900px;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        scroll-snap-align: start;
+      }
+
+      .contoh-gambar-app-toko img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Tombol Panah Navigasi Geser */
+      .btn-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 82, 212, 0.85);
+        color: white;
+        border: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        cursor: pointer;
+        z-index: 10;
+        transition: background-color 0.2s ease;
+      }
+
+      .btn-nav:hover {
+        background-color: rgba(0, 82, 212, 1);
+      }
+
+      .btn-nav.prev {
+        left: -15px;
+      }
+
+      .btn-nav.next {
+        right: -15px;
+      }
+
+      /* === STYLES POPUP MODAL (PENCIT MEMBESAR) === */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 12px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      th {
+        background-color: #f1f5f9;
+        color: #334155;
+      }
+
+      .tech-stack {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .badge {
+        background: #e2e8f0;
+        color: #334155;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #64748b;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sistem Manajemen Toko Surya Jaya</h1>
+      <p>Aplikasi Kasir & Inventaris Berbasis Desktop dengan Python Tkinter</p>
+    </header>
+
+    <div class="container">
+      <!-- Deskripsi -->
+      <div class="card">
+        <h2>Tentang Aplikasi</h2>
+        <p>
+          <strong>Sistem Manajemen Toko Surya Jaya</strong> adalah solusi
+          aplikasi desktop yang dirancang untuk memudahkan pemilik toko dalam
+          mengelola stok barang masuk, pembaruan harga, serta pencatatan
+          transaksi penjualan kasir secara <em>real-time</em>.
+        </p>
+
+        <div class="tech-stack">
+          <span class="badge">Python 3</span>
+          <span class="badge">Tkinter GUI</span>
+          <span class="badge">ttk.Treeview</span>
+          <span class="badge">Desktop App</span>
+        </div>
+      </div>
+
+      <!-- Fitur Utama -->
+      <div class="card">
+        <h2>Fitur Utama</h2>
+        <div class="features-grid">
+          <div class="feature-box">
+            <h3>📦 Manajemen Stok Barang</h3>
+            <p>
+              Tambah barang baru, ubah harga dan stok, serta hapus data barang
+              langsung dari tabel interaktif.
+            </p>
+          </div>
+          <div class="feature-box">
+            <h3>🛒 Sistem Kasir (POS)</h3>
+            <p>
+              Pilih barang via dropdown, kalkulasi subtotal otomatis, dan hitung
+              total belanjaan secara akurat.
+            </p>
+          </div>
+          <div class="feature-box">
+            <h3>⚡ Update Stok Otomatis</h3>
+            <p>
+              Stok gudang berkurang secara otomatis begitu transaksi pembayaran
+              selesai diproses.
+            </p>
+          </div>
+          <div class="feature-box">
+            <h3>🛡️ Validasi Data Input</h3>
+            <p>
+              Mencegah duplikasi nama barang, kesalahan input angka negatif, dan
+              transaksi melebihi batas stok.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galeri Gambar dengan Slider Panah & Popup Pembesar -->
+      <div class="card">
+        <h2>Tampilan Antarmuka Aplikasi</h2>
+        <div class="carousel-wrapper">
+          <button class="btn-nav prev" onclick="geser('kiri')">&#10094;</button>
+          
+          <div class="contoh-gambar-app-toko" id="slider">
+            <img src="Cuplikan layar 2026-08-26 193133.png" alt="Tampilan Aplikasi" onclick="perbesarGambar(this)" />
+            <img src="Cuplikan layar 2026-08-26 193207.png" alt="Tampilan Aplikasi" onclick="perbesarGambar(this)" />
+            <img src="Cuplikan layar 2026-08-26 193240.png" alt="Tampilan Aplikasi" onclick="perbesarGambar(this)" />
+            <img src="Cuplikan layar 2026-08-26 193355.png" alt="Tampilan Aplikasi" onclick="perbesarGambar(this)" />
+            <img src="Cuplikan layar 2026-08-26 194224.png" alt="Tampilan Aplikasi" onclick="perbesarGambar(this)" />
+            
+            
+            
+            
+          </div>
+
+          <button class="btn-nav next" onclick="geser('kanan')">&#10095;</button>
+        </div>
+      </div>
+
+      <!-- Struktur Tab -->
+      <div class="card">
+        <h2>Alur Penggunaan Aplikasi</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Modul Tab</th>
+              <th>Fungsi Utama</th>
+              <th>Aksi yang Tersedia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>📦 Stok Barang</strong></td>
+              <td>Kelola inventaris toko</td>
+              <td>Input Barang Baru, Edit Harga/Stok, Hapus Barang</td>
+            </tr>
+            <tr>
+              <td><strong>🛒 Kasir</strong></td>
+              <td>Transaksi penjualan</td>
+              <td>Pilih Barang, Input Qty, Keranjang Belanja, Bayar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal Popup Gambar -->
+    <div id="imageModal" class="modal" onclick="tutupModal()">
+      <span class="close-btn">&times;</span>
+      <img class="modal-content" id="imgFullSize" />
+    </div>
+
+    <footer>
+      &copy; 2026 Toko Surya Jaya — Dokumentasi Sistem Kasir Desktop
+    </footer>
+
+    <!-- JavaScript Logika Geser & Membesar -->
+    <script>
+      // Fungsi untuk menggeser gambar ke kanan/kiri saat tombol panah ditekan
+      function geser(arah) {
+        const slider = document.getElementById("slider");
+        const jarakGeser = 495; // Lebar gambar + gap
+
+        if (arah === 'kiri') {
+          slider.scrollBy({ left: -jarakGeser, behavior: 'smooth' });
+        } else {
+          slider.scrollBy({ left: jarakGeser, behavior: 'smooth' });
+        }
+      }
+
+      // Fungsi untuk memperbesar gambar saat dipincit/diklik
+      function perbesarGambar(element) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("imgFullSize");
+        modal.style.display = "flex";
+        modalImg.src = element.src;
+      }
+
+      // Fungsi untuk menutup tampilan pembesar
+      function tutupModal() {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
