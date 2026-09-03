@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dafa Aditya - Public Profile & Portfolio</title>
+    <title>Dafa Aditya - Profil Publik & Portofolio</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -20,8 +20,12 @@
         <nav class="nav-links">
           <a href="#profil"><i class="fa-solid fa-user"></i> Profil</a>
           <a href="#keahlian"><i class="fa-solid fa-code"></i> Keahlian</a>
-          <a href="#pendidikan"><i class="fa-solid fa-user-graduate"></i> Pendidikan</a>
-          <a href="#portofolio"><i class="fa-solid fa-rocket"></i> Portofolio</a>
+          <a href="#pendidikan"
+            ><i class="fa-solid fa-user-graduate"></i> Pendidikan</a
+          >
+          <a href="#portofolio"
+            ><i class="fa-solid fa-rocket"></i> Portofolio</a
+          >
         </nav>
       </div>
     </header>
@@ -46,35 +50,44 @@
               <span class="username">@dafaaditya</span>
             </div>
             <p class="role">
-              <i class="fa-solid fa-code"></i> fullstack
+              <i class="fa-solid fa-code"></i> Fullstack Developer
             </p>
           </div>
         </div>
         <div class="media">
-          <h3>Perkenalan awal </h3>
-          <p class="location">
-            <h4>Lokasi</h4>
-            <h5><i class="fa-solid fa-location-dot"></i> Samarinda, Indonesia</h5>
-          </p>
+          <h3>Perkenalan</h3>
+          <div class="location-box">
+            <span class="location-title">Lokasi:</span>
+            <span class="location-desc"
+              ><i class="fa-solid fa-location-dot"></i> Samarinda,
+              Indonesia</span
+            >
+          </div>
           <p class="bio">
-            Saya Pengembang Web & Game yang berfokus mengubah ide sederhana menjadi
-            nyata. Saat ini sedang mengeksplorasi mekanik dasar game,
-            serta membangun aplikasi web modern. Terbuka untuk diskusi dan kritik!
+            Saya Pengembang Web & Game yang berfokus mengubah ide sederhana
+            menjadi nyata. Saat ini sedang mengeksplorasi mekanik dasar game,
+            serta membangun aplikasi web modern. Terbuka untuk diskusi dan
+            kritik!
           </p>
-            <h3>media sosial</h3>
-              <a 
-                  href="https://www.instagram.com/dafaadityablackwhite/"
-                  class="btn btn-media"
-                >IG saya
-          </a>
-
-          <a 
-                  href="https://www.tiktok.com/@zeyrforsomething"
-                  class="btn btn-media"
-                >TT saya
-          </a>
-
-
+          <h3>Media Sosial</h3>
+          <div class="social-links">
+            <a
+              href="https://www.instagram.com/dafaadityablackwhite/"
+              class="btn btn-media"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a
+              href="https://www.tiktok.com/@zeyrforsomething"
+              class="btn btn-media"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fa-brands fa-tiktok"></i> TikTok
+            </a>
+          </div>
         </div>
       </section>
 
@@ -137,7 +150,7 @@
         </div>
       </section>
 
-      <!-- Riwayat & Progress -->
+      <!-- Riwayat Pendidikan & Pengalaman -->
       <section id="pendidikan" class="section-block">
         <h2 class="section-title">
           <i class="fa-solid fa-user-graduate"></i> Pendidikan & Pengalaman
@@ -165,7 +178,7 @@
                 <i class="fa-solid fa-laptop-code"></i>
                 <div>
                   <strong>SMK TI Airlangga Samarinda</strong>
-                  <p>Saat Ini • Pengembangan Perangkat Lunak & Game(PPLG)</p>
+                  <p>Saat Ini • Pengembangan Perangkat Lunak & Game (PPLG)</p>
                 </div>
               </li>
             </ul>
@@ -184,8 +197,10 @@
             </ul>
           </div>
         </div>
-</section>
-<section id="pendidikan" class="section-block">
+      </section>
+
+      <!-- Progress Belajar (ID diubah menjadi 'progress' agar tidak terduplikasi) -->
+      <section id="progress" class="section-block">
         <h2 class="section-title margin-top">
           <i class="fa-solid fa-chart-line"></i> Progress Belajar
         </h2>
@@ -222,7 +237,10 @@
               />
             </div>
             <div class="project-content">
-              <h3>App Mesin Kasir Toko <span style="color: red; font-size: 0.8em;">(masih tahap Pengembangan)</span></h3>
+              <h3>
+                App Mesin Kasir Toko
+                <span class="badge-dev">(Tahap Pengembangan)</span>
+              </h3>
               <p>Platform transaksi dan pengelolaan stok real-time toko.</p>
               <div class="project-links">
                 <a
@@ -242,7 +260,7 @@
             <div class="project-image">
               <img
                 src="Cuplikan layar 2026-08-24 150332.png"
-                alt="web tentang hewan"
+                alt="Web tentang hewan"
               />
             </div>
             <div class="project-content">
@@ -266,10 +284,21 @@
           </article>
         </div>
       </section>
+
+      <!-- Tombol Link Tambahan -->
+      <div class="section-block text-center">
+        <a href="p.php" class="btn btn-primary">
+          Form Pendaftaran / Login
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
     </main>
 
     <footer>
-      <p>&copy; 2026 Dafa <br /> Karya anak SMK TI AIRLANGGA</p>
+      <p>
+        &copy; 2026 Dafa Aditya <br />
+        Karya Siswa SMK TI AIRLANGGA
+      </p>
     </footer>
 
     <script src="script.js"></script>

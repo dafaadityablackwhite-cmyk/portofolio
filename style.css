@@ -435,3 +435,59 @@ html {
   background: var(--accent-hover);
   color: #fff;
 }
+
+/* Scroll Margin untuk Sticky Nav */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Helper Class */
+.text-center {
+  text-align: center;
+}
+
+.badge-dev {
+  color: #ef4444;
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.location-box {
+  margin: 10px 0;
+}
+
+.location-title {
+  font-weight: 600;
+  display: block;
+  color: var(--text-main);
+}
+
+.location-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Style List Riwayat */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.history-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.history-list i {
+  color: var(--accent-color);
+  margin-top: 4px;
+}
