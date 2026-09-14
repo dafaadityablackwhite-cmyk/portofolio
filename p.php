@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+$notif = '';
+if (isset($_GET['pesan']) && $_GET['pesan'] === 'belum_login') {
+    $notif = 'Silakan isi form dan login terlebih dahulu.';
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,6 +23,10 @@
       <h2 class="section-title">
         <i class="fa-solid fa-user-plus"></i> Form Pendaftaran
       </h2>
+
+      <?php if (!empty($notif)): ?>
+        <p style="color: #ff4d4d; text-align: center;"><?php echo htmlspecialchars($notif); ?></p>
+      <?php endif; ?>
       
       <form action="welcome_get.php" method="POST" class="custom-form">
         <div class="form-group">
@@ -33,7 +45,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-full">
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top:100">
           Kirim Data <i class="fa-solid fa-paper-plane"></i>
         </button>
       </form>

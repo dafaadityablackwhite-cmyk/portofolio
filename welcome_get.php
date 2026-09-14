@@ -1,3 +1,15 @@
+<?php  
+session_start();
+
+// Jika form dikirim melalui metode POST, simpan data ke Session
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['name'] = $_POST['name'] ?? '';
+    $_SESSION['email'] = $_POST['email'] ?? '';
+}
+
+// Memeriksa apakah session valid
+require 'cek.php';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -25,16 +37,17 @@
       <div class="result-box">
         <div class="result-item">
           <span>Nama:</span>
-          <strong><?php echo htmlspecialchars($_POST["name"] ?? 'Tamu'); ?></strong>
+          <strong><?php echo htmlspecialchars($_SESSION['name']); ?></strong>
         </div>
         <div class="result-item">
           <span>E-mail:</span>
-          <strong><?php echo htmlspecialchars($_POST["email"] ?? '-'); ?></strong>
+          <strong><?php echo htmlspecialchars($_SESSION['email']); ?></strong>
         </div>
       </div>
 
-      <a href="index.html" class="btn btn-primary btn-full" style="margin-top: 20px;">
-        <i class="fa-solid fa-house"></i> Kembali ke Beranda
+      <a href="p.php" class="btn btn-primary btn-full" style="margin-top: 20px;">
+        <i class="fa-solid fa-house"></i> Kembali ke Form
+        <a href="logout.php" class="btn btn-primary btn-full" style="margin: 10px;">Logout</a>
       </a>
     </section>
   </main>

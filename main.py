@@ -6,7 +6,7 @@ class AplikasiToko:
 
     def __init__(self,root):
         self.root = root
-        self.root.title("Sistem Manajemen Toko surya jaya")
+        self.root.title("sistem jual beli")
         self.root.geometry("800x520")
         self.root.resizable(False, False)
 
