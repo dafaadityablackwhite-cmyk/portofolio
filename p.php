@@ -5,6 +5,22 @@ $notif = '';
 if (isset($_GET['pesan']) && $_GET['pesan'] === 'belum_login') {
     $notif = 'Silakan isi form dan login terlebih dahulu.';
 }
+
+// Cek apakah form dikirim melalui metode POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Tangkap data dari form input
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+
+    // Simpan ke session
+    $_SESSION['login'] = true;
+    $_SESSION['name'] = $name;
+    $_SESSION['email'] = $email;
+
+    // Arahkan / redirect ke dashboard.php
+    header('Location: dashboard.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -28,7 +44,8 @@ if (isset($_GET['pesan']) && $_GET['pesan'] === 'belum_login') {
         <p style="color: #ff4d4d; text-align: center;"><?php echo htmlspecialchars($notif); ?></p>
       <?php endif; ?>
       
-      <form action="welcome_get.php" method="POST" class="custom-form">
+      <!-- Ubah action menjadi empty ("") agar mengarah ke file p.php ini sendiri untuk diproses -->
+      <form action="" method="POST" class="custom-form">
         <div class="form-group">
           <label for="name">Nama Lengkap</label>
           <div class="input-wrapper">
@@ -45,7 +62,7 @@ if (isset($_GET['pesan']) && $_GET['pesan'] === 'belum_login') {
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-full" style="margin-top:100">
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top:20px;">
           Kirim Data <i class="fa-solid fa-paper-plane"></i>
         </button>
       </form>
