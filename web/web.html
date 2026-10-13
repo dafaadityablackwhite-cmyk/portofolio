@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunia Hewan</title>
+    <meta name="description" content="Kenalan dengan berbagai jenis hewan: karnivora, herbivora, dan omnivora lengkap dengan gambar, status konservasi, dan kuis.">
+    <link rel="stylesheet" href="pewarna.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%8E%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+    <div id="bar-baca" role="progressbar" aria-label="Kemajuan membaca" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+    <header>
+        <h1>fakta menarik beberapa hewan</h1>
+        <p class="sapaan">10 hewan dari seluruh dunia &mdash; lengkap dengan gambar, status konservasi, dan kuis.</p>
+    </header>
+
+    <nav aria-label="Jenis hewan" id="menu">
+        <a href="#daftar-hewan">Daftar Hewan</a>
+        <a href="#karnivora">Karnivora</a>
+        <a href="#herbivora">Herbivora</a>
+        <a href="#omnivora">Omnivora</a>
+        <a href="#alasan">Kenapa Banyak Jenis?</a>
+        <a href="#kuis">Kuis</a>
+    </nav>
+
+    <main class="konten">
+        <section id="kontrol" aria-label="Cari dan saring hewan">
+            <label for="cari">Cari hewan <kbd>/</kbd></label>
+            <input type="search" id="cari" placeholder="Nama, habitat, atau status, mis. komodo atau kritis" autocomplete="off">
+
+            <div class="baris-kontrol">
+                <div class="filter" role="group" aria-label="Saring berdasarkan kategori">
+                    <span class="label-filter">Kategori</span>
+                    <button type="button" data-filter="semua" aria-pressed="true">Semua</button>
+                    <button type="button" data-filter="karnivora" aria-pressed="false">Karnivora</button>
+                    <button type="button" data-filter="herbivora" aria-pressed="false">Herbivora</button>
+                    <button type="button" data-filter="omnivora" aria-pressed="false">Omnivora</button>
+                    <button type="button" data-filter="favorit" aria-pressed="false">Favorit</button>
+                </div>
+
+                <div class="filter" role="group" aria-label="Saring berdasarkan status konservasi">
+                    <span class="label-filter">Status</span>
+                    <button type="button" data-status="semua" aria-pressed="true">Semua</button>
+                    <button type="button" data-status="kritis" aria-pressed="false">Kritis</button>
+                    <button type="button" data-status="terancam" aria-pressed="false">Terancam Punah</button>
+                    <button type="button" data-status="rentan" aria-pressed="false">Rentan</button>
+                    <button type="button" data-status="rendah" aria-pressed="false">Tidak Terancam</button>
+                </div>
+
+                <div class="filter urut" role="group" aria-label="Urutkan daftar">
+                    <span class="label-filter">Urutkan</span>
+                    <button type="button" data-urut="kategori" aria-pressed="true">Per kategori</button>
+                    <button type="button" data-urut="nama" aria-pressed="false">Nama A&ndash;Z</button>
+                    <button type="button" data-urut="status" aria-pressed="false">Status</button>
+                </div>
+            </div>
+
+            <p id="status" aria-live="polite"></p>
+            <p id="kosong" hidden></p>
+        </section>
+
+        <section id="daftar-hewan">
+            <div class="kategori" id="karnivora">
+                <h2>Karnivora (pemakan daging)</h2>
+
+                <article id="hewan-harimau-sumatra"
+                         data-status="kritis" data-status-label="Kritis"
+                         data-latin="Panthera tigris sumatrae"
+                         data-habitat="Pulau Sumatra, Indonesia"
+                         data-emo="🐯">
+                    <h3>Harimau Sumatra</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-harimau-sumatra" aria-label="Lihat detail Harimau Sumatra">
+                            <img src="gambar/harimau-sumatra.jpg" width="960" height="640"
+                                 alt="Harimau Sumatra berdiri di alam liar"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana kritis">Kritis</span></figcaption>
+                    </figure>
+                    <p>Harimau Sumatra (<em>Panthera tigris sumatrae</em>) adalah subspesies harimau yang hanya ditemukan di Pulau Sumatra, Indonesia. Mereka dikenal memiliki warna bulu yang paling gelap di antara semua jenis harimau.</p>
+                    <p>Status konservasi mereka saat ini adalah <strong>Kritis</strong> karena habitat yang berkurang dan perburuan liar.</p>
+                </article>
+
+                <article id="hewan-singa"
+                         data-status="rentan" data-status-label="Rentan"
+                         data-latin="Panthera leo"
+                         data-habitat="Savana Afrika dan sebagian India"
+                         data-emo="🦁">
+                    <h3>Singa</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-singa" aria-label="Lihat detail Singa">
+                            <img src="gambar/singa.jpg" width="960" height="640"
+                                 alt="Singa jantan dewasa di Chobe"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana rentan">Rentan</span></figcaption>
+                    </figure>
+                    <p>Singa (<em>Panthera leo</em>) hidup di savana Afrika dan sebagian kecil di India. Berbeda dengan kucing besar lain, singa hidup berkelompok yang disebut <strong>pride</strong>.</p>
+                    <p>Singa betina biasanya menjadi pemburu utama, sedangkan jantan menjaga wilayah kelompok. Status konservasinya saat ini adalah <strong>Rentan</strong>.</p>
+                </article>
+
+                <article id="hewan-buaya-muara"
+                         data-status="rendah" data-status-label="Tidak Terancam"
+                         data-latin="Crocodylus porosus"
+                         data-habitat="Sungai, rawa, dan muara Asia Tenggara hingga Australia"
+                         data-emo="🐊">
+                    <h3>Buaya Muara</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-buaya-muara" aria-label="Lihat detail Buaya Muara">
+                            <img src="gambar/buaya-muara.jpg" width="960" height="480"
+                                 alt="Buaya muara berjemur di tepi air"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana rendah">Tidak Terancam</span></figcaption>
+                    </figure>
+                    <p>Buaya muara (<em>Crocodylus porosus</em>) adalah reptil terbesar di dunia. Mereka hidup di sungai, rawa, dan muara dari Asia Tenggara hingga Australia bagian utara, termasuk perairan Indonesia.</p>
+                    <p>Panjang tubuhnya bisa lebih dari 6 meter. Buaya muara adalah pemangsa puncak di habitatnya sehingga ikut menjaga <strong>keseimbangan ekosistem</strong> perairan. Status konservasinya <strong>Tidak Terancam</strong>, namun perburuan dan perubahan habitat tetap perlu diwaspadai.</p>
+                </article>
+
+                <article id="hewan-komodo"
+                         data-status="terancam" data-status-label="Terancam Punah"
+                         data-latin="Varanus komodoensis"
+                         data-habitat="Pulau Komodo, Rinca, dan Flores, NTT"
+                         data-emo="🦎">
+                    <h3>Komodo</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-komodo" aria-label="Lihat detail Komodo">
+                            <img src="gambar/komodo.jpg" width="960" height="757"
+                                 alt="Komodo sedang merayap di tanah"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana terancam">Terancam Punah</span></figcaption>
+                    </figure>
+                    <p>Komodo (<em>Varanus komodoensis</em>) adalah kadal terbesar di dunia dan hanya ditemukan di Indonesia, yaitu di Pulau Komodo, Rinca, Flores, dan sekitarnya di Nusa Tenggara Timur.</p>
+                    <p>Komodo berburu rusa, babi hutan, dan hewan lain. Status konservasinya adalah <strong>Terancam Punah</strong>.</p>
+                </article>
+            </div>
+
+            <div class="kategori" id="herbivora">
+                <h2>Herbivora (pemakan tumbuhan)</h2>
+
+                <article id="hewan-gajah-asia"
+                         data-status="terancam" data-status-label="Terancam Punah"
+                         data-latin="Elephas maximus"
+                         data-habitat="Hutan Asia, dari India hingga Kalimantan"
+                         data-emo="🐘">
+                    <h3>Gajah Asia</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-gajah-asia" aria-label="Lihat detail Gajah Asia">
+                            <img src="gambar/gajah-asia.jpg" width="960" height="640"
+                                 alt="Gajah Asia menyeberangi sungai saat sore"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana terancam">Terancam Punah</span></figcaption>
+                    </figure>
+                    <p>Gajah Asia adalah hewan darat terbesar di benua Asia. Mereka sangat cerdas dan memiliki struktur sosial yang kompleks. Berbeda dengan gajah Afrika, gajah Asia memiliki telinga yang lebih kecil.</p>
+                    <p>Mereka berperan penting dalam <strong>ekosistem</strong> hutan dengan membantu penyebaran biji-bijian tanaman melalui kotorannya. Status konservasinya <strong>Terancam Punah</strong> karena kehilangan habitat dan konflik dengan manusia.</p>
+                </article>
+
+                <article id="hewan-jerapah"
+                         data-status="rendah" data-status-label="Tidak Terancam"
+                         data-latin="Giraffa camelopardalis"
+                         data-habitat="Savana dan padang rumput Afrika"
+                         data-emo="🦒">
+                    <h3>Jerapah</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-jerapah" aria-label="Lihat detail Jerapah">
+                            <img src="gambar/jerapah.jpg" width="960" height="640"
+                                 alt="Kepala jerapah dengan burung oxpecker di Taman Nasional Kruger"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana rendah">Tidak Terancam</span></figcaption>
+                    </figure>
+                    <p>Jerapah (<em>Giraffa camelopardalis</em>) adalah hewan tertinggi di dunia, dengan tinggi mencapai sekitar 5 meter. Mereka hidup di savana Afrika.</p>
+                    <p>Leher yang panjang membantu jerapah menjangkau daun pohon akasia di tempat yang tidak bisa dicapai hewan lain. Populasinya masih banyak, tetapi jumlahnya terus menurun akibat hilangnya habitat.</p>
+                </article>
+
+                <article id="hewan-badak-jawa"
+                         data-status="kritis" data-status-label="Kritis"
+                         data-latin="Rhinoceros sondaicus"
+                         data-habitat="Taman Nasional Ujung Kulon, Banten"
+                         data-emo="🦏">
+                    <h3>Badak Jawa</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-badak-jawa" aria-label="Lihat detail Badak Jawa">
+                            <img src="gambar/badak-jawa.jpg" width="960" height="787"
+                                 alt="Badak Jawa berdiri di rumput"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana kritis">Kritis</span></figcaption>
+                    </figure>
+                    <p>Badak Jawa (<em>Rhinoceros sondaicus</em>) adalah salah satu mamalia paling langka di dunia. Populasi terakhirnya hidup di Taman Nasional Ujung Kulon, Banten.</p>
+                    <p>Mereka memakan daun, tunas, dan buah yang jatuh. Status konservasinya adalah <strong>Kritis</strong>.</p>
+                </article>
+            </div>
+
+            <div class="kategori" id="omnivora">
+                <h2>Omnivora (pemakan tumbuhan dan daging)</h2>
+
+                <article id="hewan-beruang"
+                         data-status="rendah" data-status-label="Tidak Terancam"
+                         data-latin="Ursus arctos"
+                         data-habitat="Hutan, pegunungan, dan tundra di Eurasia"
+                         data-emo="🐻">
+                    <h3>Beruang</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-beruang" aria-label="Lihat detail Beruang">
+                            <img src="gambar/beruang.jpg" width="960" height="640"
+                                 alt="Beruang coklat dewasa di alam liar"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana rendah">Tidak Terancam</span></figcaption>
+                    </figure>
+                    <p>Beruang hidup di berbagai habitat, seperti hutan, gunung, dan tundra. Mereka dapat ditemukan di Amerika Utara, Eropa, dan Asia. Beruang memiliki ciri-ciri fisik seperti tubuh besar dan kuat, bulu tebal dan panjang, cakar tajam, gigi besar, serta penglihatan, pendengaran, dan penciuman yang baik.</p>
+                    <p>Beruang berperan dalam menjaga keseimbangan <strong>ekosistem</strong> dengan menyebarkan biji tanaman dan mengontrol populasi hewan lain.</p>
+                </article>
+
+                <article id="hewan-babi-hutan"
+                         data-status="rendah" data-status-label="Tidak Terancam"
+                         data-latin="Sus scrofa"
+                         data-habitat="Hutan dan ladang di Eropa, Asia, dan Afrika Utara"
+                         data-emo="🐗">
+                    <h3>Babi Hutan</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-babi-hutan" aria-label="Lihat detail Babi Hutan">
+                            <img src="gambar/babi-hutan.jpg" width="960" height="666"
+                                 alt="Babi hutan muda di habitatnya"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana rendah">Tidak Terancam</span></figcaption>
+                    </figure>
+                    <p>Babi hutan (<em>Sus scrofa</em>) tersebar luas di Eropa, Asia, dan Afrika Utara, serta ditemukan di hutan-hutan Indonesia. Mereka memakan akar, buah, serangga, dan hewan kecil.</p>
+                    <p>Kebiasaan menggali tanah untuk mencari makan membuat tanah menjadi gembur, tetapi juga bisa merusak lahan pertanian. Populasinya meluas dan <strong>Tidak Terancam</strong>.</p>
+                </article>
+
+                <article id="hewan-orangutan-kalimantan"
+                         data-status="kritis" data-status-label="Kritis"
+                         data-latin="Pongo pygmaeus"
+                         data-habitat="Hutan Pulau Kalimantan"
+                         data-emo="🦧">
+                    <h3>Orangutan Kalimantan</h3>
+                    <figure class="gambar-hewan">
+                        <button type="button" class="besar" data-detail="hewan-orangutan-kalimantan" aria-label="Lihat detail Orangutan Kalimantan">
+                            <img src="gambar/orangutan-kalimantan.jpg" width="960" height="640"
+                                 alt="Orangutan Kalimantan di Taman Nasional Tanjung Puting"
+                                 loading="lazy" decoding="async">
+                            <span class="kaca" aria-hidden="true">🔍</span>
+                        </button>
+                        <figcaption><span class="lencana kritis">Kritis</span></figcaption>
+                    </figure>
+                    <p>Orangutan Kalimantan (<em>Pongo pygmaeus</em>) hanya ditemukan di hutan Pulau Kalimantan. Makanan utamanya adalah buah, ditambah daun, kulit kayu, dan serangga.</p>
+                    <p>Mereka menyebarkan biji-bijian hutan melalui kotorannya. Status konservasinya adalah <strong>Kritis</strong> karena hutannya terus berkurang.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="alasan">
+            <h2>Kenapa hewan memiliki banyak jenis?</h2>
+            <p>Secara garis besar, ada tiga alasan utama mengapa hewan memiliki banyak jenis:</p>
+
+            <ol>
+                <li>
+                    <h3>Adaptasi terhadap Lingkungan (Seleksi Alam)</h3>
+                    <p>Bumi memiliki kondisi alam yang sangat berbeda-beda: ada kutub yang membeku, gurun yang gersang, hingga laut dalam yang gelap. Agar bisa bertahan hidup, hewan harus menyesuaikan diri (<strong>adaptasi</strong>) dengan lingkungan spesifik mereka.</p>
+                    <p><strong>Contoh:</strong> di kutub, hewan memiliki bulu tebal dan lapisan lemak (seperti beruang kutub). Di gurun, hewan berevolusi untuk menyimpan air (seperti unta).</p>
+                    <p><strong>Seleksi alam:</strong> hewan yang paling cocok dengan lingkungannya akan bertahan hidup dan memiliki keturunan, sedangkan yang tidak cocok akan punah. Inilah yang menyebabkan munculnya spesies-spesies baru yang unik.</p>
+                </li>
+                <li>
+                    <h3>Isolasi Geografis</h3>
+                    <p>Ketika sekelompok hewan terpisah dari kelompok utamanya (misalnya karena munculnya gunung, pergeseran benua, atau terpisah ke pulau baru), mereka mulai berkembang secara mandiri.</p>
+                    <p>Karena lingkungan di tempat baru berbeda, kelompok yang terpisah ini akan berevolusi mengikuti kondisi tersebut. Setelah jutaan tahun, mereka menjadi sangat berbeda dari nenek moyangnya sehingga dianggap sebagai jenis atau spesies baru.</p>
+                </li>
+                <li>
+                    <h3>Variasi Genetik dan Mutasi</h3>
+                    <p>Di dalam sel setiap makhluk hidup terdapat <strong>DNA</strong>. Kadang-kadang terjadi perubahan acak pada DNA yang disebut mutasi.</p>
+                    <p>Sebagian mutasi mungkin tidak berguna, tetapi sebagian lainnya bisa memberikan keuntungan (misalnya warna kulit yang lebih membantu penyamaran).</p>
+                    <p>Variasi genetik ini diwariskan dari orang tua ke anak, sehingga lama-kelamaan menciptakan perbedaan fisik dan perilaku yang besar dalam satu garis keturunan.</p>
+                </li>
+            </ol>
+
+            <h2>Mengapa ini penting?</h2>
+            <p>Keanekaragaman hayati (<strong>biodiversitas</strong>) menjaga keseimbangan ekosistem. Jika semua hewan hanya satu jenis, satu penyakit saja bisa memusnahkan seluruh kehidupan di Bumi. Dengan adanya banyak jenis, alam menjadi lebih tangguh dan stabil.</p>
+        </section>
+
+        <section id="kuis">
+            <h2>Kuis: hewan ini termasuk golongan apa?</h2>
+
+            <div class="kotak-kuis" id="kotak-kuis">
+                <div id="bar-soal" role="progressbar" aria-label="Kemajuan kuis" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span></span>
+                </div>
+                <p id="soal"></p>
+                <div id="kotak-gambar" class="kotak-gambar" hidden></div>
+                <div class="filter" id="pilihan" role="group" aria-label="Pilihan jawaban">
+                    <button type="button" data-jawab="karnivora">Karnivora</button>
+                    <button type="button" data-jawab="herbivora">Herbivora</button>
+                    <button type="button" data-jawab="omnivora">Omnivora</button>
+                </div>
+                <p id="umpan" aria-live="polite"></p>
+                <p id="skor"></p>
+                <button type="button" id="lanjut" class="tombol" hidden>Soal berikutnya</button>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="panel-hewan" aria-labelledby="panel-judul">
+        <div class="panel-isi">
+            <button type="button" class="tutup" id="panel-tutup" aria-label="Tutup detail">&times;</button>
+            <p class="panel-nomor" id="panel-nomor"></p>
+            <h2 id="panel-judul"></h2>
+            <p class="panel-latin" id="panel-latin"></p>
+
+            <button type="button" class="panel-gambar" id="panel-gambar" aria-pressed="false" aria-label="Klik untuk memperbesar atau mengembalikan ukuran gambar">
+                <img id="panel-img" src="" alt="" width="960" height="640">
+            </button>
+            <p class="petunjuk-zoom" id="petunjuk-zoom">Klik gambar untuk memperbesar &middot; klik lagi untuk mengembalikan</p>
+
+            <div class="panel-tag">
+                <span class="lencana" id="panel-status"></span>
+                <span class="kapsi-kategori" id="panel-kategori"></span>
+            </div>
+
+            <dl class="panel-fakta">
+                <dt>Habitat</dt><dd id="panel-habitat"></dd>
+            </dl>
+
+            <div class="panel-teks" id="panel-teks"></div>
+
+            <div class="aksi panel-aksi">
+                <button type="button" id="panel-suka" class="suka" aria-pressed="false">♡ Jadikan favorit</button>
+                <button type="button" id="panel-prev" class="tombol-kontrol">← Sebelumnya</button>
+                <button type="button" id="panel-next" class="tombol-kontrol">Berikutnya →</button>
+            </div>
+            <p class="petunjuk-keys">Gunakan tombol <kbd>←</kbd> <kbd>→</kbd> untuk berpindah hewan</p>
+        </div>
+    </dialog>
+
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+
+    <button type="button" id="ke-atas" aria-label="Kembali ke atas" hidden>↑</button>
+
+    <footer>
+        <h3>Terinspirasi oleh web</h3>
+        <a class="tautan-gambar" href="https://www.liputan6.com/feeds/read/6119468/bingung-dengan-nama-ilmiah-hewan-ini-daftar-terlengkap-dari-seluruh-dunia" target="_blank" rel="noopener">
+            <img src="https://th.bing.com/th/id/OIP.Wnq0Ekktvs5lgNrdkasoVQHaFj?o=7rm=3&amp;rs=1&amp;pid=ImgDetMain&amp;o=7&amp;rm=3" alt="Liputan6 — daftar nama ilmiah hewan" width="100" loading="lazy">
+        </a>
+        <p>Tekan gambar untuk menjelajah ke web tersebut.</p>
+
+        <details id="kredit">
+            <summary>Kredit gambar</summary>
+            <p>Semua foto hewan diambil dari Wikimedia Commons, diunduh pada 6 Oktober 2026.</p>
+            <ul>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Sumatran_tiger_(Panthera_tigris_sumatrae).jpg" target="_blank" rel="noopener">Harimau Sumatra</a> &mdash; Theo Kruse Burgers' Zoo &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Lion_(Panthera_leo)_old_male_Chobe.jpg" target="_blank" rel="noopener">Singa</a> &mdash; Charles J. Sharp &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Saltwater_crocodile_in_Sundarbans_National_Park_November_2024_by_Tisha_Mukherjee_03.jpg" target="_blank" rel="noopener">Buaya Muara</a> &mdash; Tisha Mukherjee &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Komodo_dragon_(Varanus_komodoensis).jpg" target="_blank" rel="noopener">Komodo</a> &mdash; Charles J. Sharp &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Asian_elephant_walking_in_Tad_Lo_river_at_golden_hour,_Bolaven_Plateau,_Laos.jpg" target="_blank" rel="noopener">Gajah Asia</a> &mdash; Basile Morin &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:South_African_giraffe_(Giraffa_camelopardalis_giraffa)_head_with_oxpecker_Kruger.jpg" target="_blank" rel="noopener">Jerapah</a> &mdash; Charles J. Sharp &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Lesser_One_Horned_Rhinoceros_Rhinoceros_Sondaicus_(53549614).jpeg" target="_blank" rel="noopener">Badak Jawa</a> &mdash; Scott Nelson &mdash; <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg" target="_blank" rel="noopener">Beruang</a> &mdash; Charles J. Sharp &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:A_young_wild_boar_in_his_environment.jpg" target="_blank" rel="noopener">Babi Hutan</a> &mdash; Michael Gäbler &mdash; <a href="https://creativecommons.org/licenses/by/3.0" target="_blank" rel="noopener">CC BY 3.0</a></li>
+                <li><a href="https://commons.wikimedia.org/wiki/File:Bornean_orangutan_(Pongo_pygmaeus),_Tanjung_Putting_National_Park_02.jpg" target="_blank" rel="noopener">Orangutan Kalimantan</a> &mdash; Thomas Fuhrmann &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></li>
+            </ul>
+        </details>
+
+        <p>&copy; Dafa Aditya, 22 Januari 2026<br>Karya siswa SMK TI Airlangga</p>
+    </footer>
+
+    <script src="skrip.js"></script>
+</body>
+</html>

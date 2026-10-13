@@ -18,3 +18,4 @@ try {
  error_log($e->getMessage());
  die('Koneksi database gagal. Silakan coba lagi nanti.');
 }
+
